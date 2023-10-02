@@ -30,8 +30,12 @@ const Contacts = () => {
       toast.error("Message Required");
     } else {
       const rawResponse = await axios.post("/api/contact", FormValue);
-
-      console.log("Hello rawResponse =", rawResponse);
+      if (rawResponse.data.status === "success") {
+      toast.success("Congratulations!! Message Sent");
+      }
+      else {
+        toast.error("Sorry. Message Unsuccessful");
+      }
     }
   };
   return (
