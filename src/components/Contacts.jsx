@@ -1,7 +1,6 @@
 "use client";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
-import axios from "axios";
 
 const Contacts = () => {
   let [FormValue, setFormValue] = useState({
@@ -29,13 +28,15 @@ const Contacts = () => {
     } else if (FormValue.msg.length === 0) {
       toast.error("Message Required");
     } else {
-      const rawResponse = await axios.post("/api/contact", FormValue);
-      if (rawResponse.data.status === "success") {
+      
       toast.success("Congratulations!! Message Sent");
-      }
-      else {
-        toast.error("Sorry. Message Unsuccessful");
-      }
+      // const rawResponse = await axios.post("/api/contact", FormValue);
+      // if (rawResponse.data.status === "success") {
+      // toast.success("Congratulations!! Message Sent");
+      // }
+      // else {
+      //   toast.error("Sorry. Message Unsuccessful");
+      // }
     }
   };
   return (
